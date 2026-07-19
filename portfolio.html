@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pawan | Android Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0D0F12;
+    --ink-muted: #5A5F6B;
+    --ink-faint: #9AA0AE;
+    --surface: #FFFFFF;
+    --surface-2: #F6F7F9;
+    --surface-3: #EDEFF3;
+    --accent: #1B6CF2;
+    --accent-dim: #EBF1FE;
+    --accent-dark: #0F47B5;
+    --green: #0E8A5F;
+    --green-dim: #E6F5EF;
+    --border: rgba(0,0,0,0.08);
+    --border-strong: rgba(0,0,0,0.15);
+    --font: 'Space Grotesk', system-ui, sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+    --radius: 12px;
+    --radius-sm: 8px;
+    --radius-lg: 20px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.06);
+    --shadow-lg: 0 12px 40px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06);
+    --max-w: 1100px;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font);
+    background: var(--surface);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 2rem;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-logo {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .nav-logo span.dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink-muted);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-cta {
+    background: var(--ink);
+    color: #fff !important;
+    padding: 8px 18px;
+    border-radius: 100px;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    transition: background 0.15s !important;
+  }
+  .nav-cta:hover { background: var(--accent) !important; color: #fff !important; }
+
+  /* HERO */
+  .hero {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 100px 2rem 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent-dim);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .hero h1 {
+    font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 1.25rem;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--ink-muted);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    max-width: 500px;
+  }
+  .hero-ctas {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: #fff;
+    padding: 14px 26px;
+    border-radius: 100px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.15s, transform 0.1s;
+  }
+  .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--surface);
+    color: var(--ink);
+    padding: 14px 26px;
+    border-radius: 100px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1.5px solid var(--border-strong);
+    transition: border-color 0.15s, transform 0.1s;
+  }
+  .btn-secondary:hover { border-color: var(--ink); transform: translateY(-1px); }
+  .btn-arrow { font-size: 18px; transition: transform 0.15s; }
+  .btn-primary:hover .btn-arrow, .btn-secondary:hover .btn-arrow { transform: translateX(3px); }
+
+  /* Hero visual panel */
+  .hero-visual {
+    position: relative;
+  }
+  .code-card {
+    background: #0F1117;
+    border-radius: var(--radius-lg);
+    padding: 1.5rem 1.75rem;
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+  }
+  .code-card-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 1.25rem;
+  }
+  .dot-red { width: 12px; height: 12px; border-radius: 50%; background: #FF5F57; }
+  .dot-yellow { width: 12px; height: 12px; border-radius: 50%; background: #FFBD2E; }
+  .dot-green { width: 12px; height: 12px; border-radius: 50%; background: #28C840; }
+  .code-card-title {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: #6B7280;
+    margin-left: 6px;
+  }
+  pre.code-snippet {
+    font-family: var(--mono);
+    font-size: 13px;
+    line-height: 1.8;
+    color: #C9D1D9;
+    white-space: pre;
+    overflow-x: auto;
+  }
+  .kw { color: #FF7B72; }
+  .fn { color: #79C0FF; }
+  .ty { color: #FFA657; }
+  .st { color: #A5D6FF; }
+  .cm { color: #8B949E; }
+  .vl { color: #79C0FF; }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1.25rem;
+  }
+  .stat-chip {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 12px;
+    text-align: center;
+  }
+  .stat-chip .num {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.03em;
+  }
+  .stat-chip .lbl {
+    display: block;
+    font-size: 11px;
+    color: var(--ink-faint);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 2px;
+  }
+
+  /* SECTION COMMON */
+  section { padding: 80px 2rem; }
+  .section-inner { max-width: var(--max-w); margin: 0 auto; }
+  .section-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-faint);
+    margin-bottom: 0.5rem;
+  }
+  .section-title {
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+  .section-sub {
+    font-size: 1.05rem;
+    color: var(--ink-muted);
+    max-width: 560px;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+  }
+
+  /* ABOUT */
+  .about { background: var(--surface-2); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 2fr 1.2fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .about-text p {
+    font-size: 1.05rem;
+    color: var(--ink-muted);
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+  }
+  .about-text p strong { color: var(--ink); font-weight: 600; }
+  .about-text p:last-child { margin-bottom: 0; }
+
+  .about-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .highlight-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+  .highlight-card .hc-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-faint);
+    margin-bottom: 6px;
+  }
+  .highlight-card .hc-value {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .highlight-card .hc-sub {
+    font-size: 13px;
+    color: var(--ink-muted);
+    margin-top: 3px;
+  }
+  .highlight-card.accent-card {
+    background: var(--accent);
+    border-color: var(--accent-dark);
+  }
+  .highlight-card.accent-card .hc-label { color: rgba(255,255,255,0.65); }
+  .highlight-card.accent-card .hc-value { color: #fff; font-size: 2rem; }
+  .highlight-card.accent-card .hc-sub { color: rgba(255,255,255,0.7); }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+  .skill-group {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+  }
+  .skill-group-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1.1rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .skill-group-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+  }
+  .icon-blue { background: var(--accent-dim); }
+  .icon-green { background: var(--green-dim); }
+  .icon-purple { background: #F0EDFB; }
+  .icon-orange { background: #FFF3E8; }
+  .skill-group-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .skill-tag {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ink-muted);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 5px 10px;
+    border-radius: 6px;
+  }
+  .skill-tag.primary {
+    color: var(--accent);
+    background: var(--accent-dim);
+    border-color: rgba(27, 108, 242, 0.2);
+  }
+
+  /* PROJECTS */
+  .projects { background: var(--surface-2); }
+  .projects-list { display: flex; flex-direction: column; gap: 2rem; }
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .project-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+  .project-card-header {
+    background: #0F1117;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .project-header-left {}
+  .project-number {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: #6B7280;
+    letter-spacing: 0.1em;
+    margin-bottom: 6px;
+  }
+  .project-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #E6EDF3;
+    letter-spacing: -0.02em;
+  }
+  .project-tagline {
+    font-size: 14px;
+    color: #8B949E;
+    margin-top: 4px;
+  }
+  .project-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: flex-end;
+  }
+  .badge {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 6px;
+  }
+  .badge-blue { background: rgba(27,108,242,0.15); color: #79C0FF; }
+  .badge-green { background: rgba(14,138,95,0.15); color: #3FB950; }
+  .badge-orange { background: rgba(255,166,0,0.12); color: #FFA657; }
+  .badge-purple { background: rgba(130,80,255,0.12); color: #D2A8FF; }
+
+  .project-card-body { padding: 2rem; }
+  .project-sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .project-section-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+    margin-bottom: 0.6rem;
+  }
+  .project-section-content {
+    font-size: 0.95rem;
+    color: var(--ink-muted);
+    line-height: 1.7;
+  }
+  .project-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 1.5rem 0;
+  }
+  .feature-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .feature-list li {
+    font-size: 0.93rem;
+    color: var(--ink-muted);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.5;
+  }
+  .feature-list li::before {
+    content: '▸';
+    color: var(--accent);
+    font-size: 11px;
+    margin-top: 3px;
+    flex-shrink: 0;
+  }
+  .feature-list li code {
+    font-family: var(--mono);
+    font-size: 11px;
+    background: var(--accent-dim);
+    color: var(--accent);
+    padding: 1px 6px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1.25rem;
+  }
+  .metric-box {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 1rem;
+    text-align: center;
+  }
+  .metric-box .mval {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.03em;
+    display: block;
+  }
+  .metric-box .mlbl {
+    font-size: 11px;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 3px;
+  }
+  .metric-placeholder { color: var(--ink-faint); font-style: italic; font-size: 13px; margin-top: 4px; }
+
+  /* CONTACT */
+  .contact {
+    text-align: center;
+    background: var(--ink);
+    color: #fff;
+  }
+  .contact .section-label { color: rgba(255,255,255,0.4); }
+  .contact .section-title { color: #fff; }
+  .contact-sub {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.6);
+    max-width: 560px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.7;
+  }
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.15s;
+  }
+  .contact-link:hover { color: #fff; }
+  .contact-link svg { width: 18px; height: 18px; }
+  .contact-cta-group {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .btn-white {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    color: var(--ink);
+    padding: 14px 28px;
+    border-radius: 100px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.15s, transform 0.1s;
+  }
+  .btn-white:hover { background: #E8EAED; transform: translateY(-1px); }
+  .btn-ghost-white {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: rgba(255,255,255,0.8);
+    padding: 14px 28px;
+    border-radius: 100px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1.5px solid rgba(255,255,255,0.25);
+    transition: border-color 0.15s, color 0.15s, transform 0.1s;
+  }
+  .btn-ghost-white:hover { border-color: rgba(255,255,255,0.6); color: #fff; transform: translateY(-1px); }
+
+  /* FOOTER */
+  footer {
+    background: #080A0D;
+    padding: 1.5rem 2rem;
+    text-align: center;
+  }
+  footer p {
+    font-size: 12px;
+    color: rgba(255,255,255,0.25);
+    font-family: var(--mono);
+  }
+
+  /* AVAILABILITY CHIP */
+  .availability-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--green-dim);
+    color: var(--green);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-top: 1.5rem;
+  }
+  .avail-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--green);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 800px) {
+    .hero { grid-template-columns: 1fr; padding: 60px 1.5rem 50px; gap: 2.5rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .project-sections { grid-template-columns: 1fr; }
+    .metrics-grid { grid-template-columns: repeat(3, 1fr); }
+    .hero-stats { grid-template-columns: repeat(3, 1fr); }
+    .nav-links { display: none; }
+    section { padding: 60px 1.5rem; }
+    .project-card-header { flex-direction: column; }
+    .project-badges { justify-content: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo"><span class="dot"></span> Pawan</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section style="padding: 0;">
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Android Developer · 4 Years Experience</div>
+    <h1>Building Android apps that <em>perform</em> at scale.</h1>
+    <p class="hero-sub">
+      I craft high-quality, production-ready Android applications using modern Kotlin &amp; Jetpack — from clean architecture design to Play Store deployment. No hand-holding required.
+    </p>
+    <div class="hero-ctas">
+      <a href="#projects" class="btn-primary">View My Work <span class="btn-arrow">→</span></a>
+      <a href="#contact" class="btn-secondary">Let's Build Together <span class="btn-arrow">→</span></a>
+    </div>
+    <div class="availability-chip">
+      <span class="avail-dot"></span>
+      Open to full-time &amp; contract opportunities
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="code-card">
+      <div class="code-card-header">
+        <div class="dot-red"></div>
+        <div class="dot-yellow"></div>
+        <div class="dot-green"></div>
+        <span class="code-card-title">UrlFilterViewModel.kt</span>
+      </div>
+      <pre class="code-snippet"><span class="cm">// Clean Architecture · Kotlin · Flow</span>
+<span class="kw">@HiltViewModel</span>
+<span class="kw">class</span> <span class="ty">UrlFilterViewModel</span> <span class="kw">@Inject constructor</span>(
+    <span class="kw">private val</span> engine: <span class="ty">UrlFilterEngine</span>
+) : <span class="ty">ViewModel</span>() {
+
+    <span class="kw">private val</span> _result = <span class="fn">MutableStateFlow</span><<span class="ty">UiState</span>>(<span class="ty">Idle</span>)
+    <span class="kw">val</span> result = _result.<span class="fn">asStateFlow</span>()
+
+    <span class="kw">fun</span> <span class="fn">checkUrl</span>(url: <span class="ty">String</span>) {
+        <span class="fn">viewModelScope</span>.<span class="fn">launch</span> {
+            _result.<span class="fn">emit</span>(<span class="ty">Loading</span>)
+            <span class="kw">val</span> verdict = engine.<span class="fn">checkURL</span>(url)
+            _result.<span class="fn">emit</span>(<span class="ty">Success</span>(verdict))
+        }
+    }
+}</pre>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-chip">
+        <span class="num">4+</span>
+        <span class="lbl">Years</span>
+      </div>
+      <div class="stat-chip">
+        <span class="num">10+</span>
+        <span class="lbl">Apps Shipped</span>
+      </div>
+      <div class="stat-chip">
+        <span class="num">API 21</span>
+        <span class="lbl">Min Target</span>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="section-inner">
+    <div class="section-label">// about me</div>
+    <h2 class="section-title">Engineer by trade,<br>problem-solver by nature.</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I'm an Android Developer with <strong>4 years of hands-on experience</strong> building applications that live in users' pockets and handle real-world load. My journey started with a deep fascination for the Android platform — the intersection of performance constraints, UX expectations, and system-level engineering is a puzzle I genuinely love solving.
+        </p>
+        <p>
+          Over the years I've worked across the full Android stack: architecting <strong>Clean Architecture + MVVM</strong> codebases from scratch, wiring up asynchronous data pipelines with <strong>Kotlin Coroutines &amp; Flow</strong>, securing apps with VPN-level traffic inspection, and shipping SDK libraries that integrate cleanly into third-party host applications without version conflicts or runtime surprises.
+        </p>
+        <p>
+          I care deeply about the craft — <strong>readable code, testable modules, and UI that stays at 60fps</strong>. I don't treat those things as nice-to-haves. I've built everything from security-focused antivirus engines to real-time WebRTC screen share apps, and in every case I hold the same bar: if it doesn't feel polished and fast, it's not done.
+        </p>
+        <p>
+          Whether you need a <strong>full-time engineer</strong> to join your team or a <strong>freelance partner</strong> to take a concept from Figma to Play Store — I can work independently, communicate clearly, and deliver production-ready code you'll actually want to maintain.
+        </p>
+      </div>
+      <div class="about-highlights">
+        <div class="highlight-card accent-card">
+          <div class="hc-label">Professional Experience</div>
+          <div class="hc-value">4 Years</div>
+          <div class="hc-sub">Native Android · Kotlin · Production apps</div>
+        </div>
+        <div class="highlight-card">
+          <div class="hc-label">Specialization</div>
+          <div class="hc-value">Android SDK Development</div>
+          <div class="hc-sub">AAR packaging, ProGuard, Maven distribution</div>
+        </div>
+        <div class="highlight-card">
+          <div class="hc-label">Architecture</div>
+          <div class="hc-value">Clean · MVVM · DI</div>
+          <div class="hc-sub">Scalable codebases that survive handoffs</div>
+        </div>
+        <div class="highlight-card">
+          <div class="hc-label">Availability</div>
+          <div class="hc-value" style="color: var(--green);">Open to Work</div>
+          <div class="hc-sub">Full-time &amp; freelance · Remote-friendly</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-label">// tech stack</div>
+    <h2 class="section-title">Tools I reach for daily.</h2>
+    <p class="section-sub">
+      Grouped by discipline. The <span style="color:var(--accent); font-weight:600;">highlighted</span> ones are where I spend most of my time.
+    </p>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-header">
+          <div class="skill-group-icon icon-blue">🛠</div>
+          <span class="skill-group-name">Languages</span>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag primary">Kotlin</span>
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">XML</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-header">
+          <div class="skill-group-icon icon-purple">🎨</div>
+          <span class="skill-group-name">UI / UX</span>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag primary">Jetpack Compose</span>
+          <span class="skill-tag primary">Material 3</span>
+          <span class="skill-tag">XML Layouts</span>
+          <span class="skill-tag">ViewBinding</span>
+          <span class="skill-tag">Motion Layout</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-header">
+          <div class="skill-group-icon icon-blue">⚡</div>
+          <span class="skill-group-name">Async &amp; Concurrency</span>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag primary">Coroutines</span>
+          <span class="skill-tag primary">Flow / StateFlow</span>
+          <span class="skill-tag">LiveData</span>
+          <span class="skill-tag">WorkManager</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-header">
+          <div class="skill-group-icon icon-orange">🏛</div>
+          <span class="skill-group-name">Architecture &amp; DI</span>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag primary">Clean Architecture</span>
+          <span class="skill-tag primary">MVVM</span>
+          <span class="skill-tag primary">Dagger-Hilt</span>
+          <span class="skill-tag">Navigation Component</span>
+          <span class="skill-tag">Repository Pattern</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-header">
+          <div class="skill-group-icon icon-green">🗄</div>
+          <span class="skill-group-name">Data &amp; Networking</span>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag primary">Retrofit</span>
+          <span class="skill-tag">Room / SQLite</span>
+          <span class="skill-tag">Gson / Moshi</span>
+          <span class="skill-tag">OkHttp</span>
+          <span class="skill-tag">DataStore</span>
+          <span class="skill-tag">SharedPreferences</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-header">
+          <div class="skill-group-icon icon-orange">🧪</div>
+          <span class="skill-group-name">Testing &amp; DevOps</span>
+        </div>
+        <div class="skill-tags">
+          <span class="skill-tag primary">JUnit 5</span>
+          <span class="skill-tag primary">Mockk</span>
+          <span class="skill-tag">Espresso</span>
+          <span class="skill-tag">CI/CD Pipelines</span>
+          <span class="skill-tag">GitHub Actions</span>
+          <span class="skill-tag">Gradle</span>
+          <span class="skill-tag">ProGuard / R8</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects" id="projects">
+  <div class="section-inner">
+    <div class="section-label">// case studies</div>
+    <h2 class="section-title">Things I've built &amp; shipped.</h2>
+    <p class="section-sub">Real projects. Real problems solved. Replace the placeholders with your own metrics.</p>
+
+    <div class="projects-list">
+
+      <!-- PROJECT 1 -->
+      <div class="project-card">
+        <div class="project-card-header">
+          <div class="project-header-left">
+            <div class="project-number">01 / PROJECT</div>
+            <div class="project-name">eScan URL Filter SDK</div>
+            <div class="project-tagline">Enterprise-grade Android SDK for real-time URL threat detection</div>
+          </div>
+          <div class="project-badges">
+            <span class="badge badge-blue">Kotlin SDK</span>
+            <span class="badge badge-green">AAR / Maven</span>
+            <span class="badge badge-orange">Security</span>
+            <span class="badge badge-purple">Coroutines</span>
+          </div>
+        </div>
+        <div class="project-card-body">
+          <div class="project-sections">
+            <div>
+              <div class="project-section-label">The Problem</div>
+              <div class="project-section-content">
+                Third-party Android apps needed a drop-in threat intelligence layer that could classify URLs — phishing, malware, spam — in real-time without introducing runtime crashes from conflicting transitive dependencies like Gson or Room version mismatches.
+              </div>
+            </div>
+            <div>
+              <div class="project-section-label">My Role &amp; Solution</div>
+              <div class="project-section-content">
+                Sole architect and developer. Designed the SDK's public API surface, built a four-stage batch processing pipeline, and made deliberate dependency choices (plain <code style="font-family:var(--mono);font-size:12px;background:var(--accent-dim);color:var(--accent);padding:1px 6px;border-radius:4px;">SQLiteOpenHelper</code> over Room) to eliminate host-app version conflicts.
+              </div>
+            </div>
+          </div>
+          <hr class="project-divider">
+          <div class="project-section-label" style="margin-bottom:0.8rem;">Key Features</div>
+          <ul class="feature-list">
+            <li>Suspend functions <code>checkURL</code> and <code>checkURLBatch</code> built on <code>Coroutines + Flow</code> for non-blocking, backpressure-aware threat checks.</li>
+            <li>In-flight deduplication via <code>ConcurrentHashMap&lt;String, Deferred&lt;CloudResult&gt;&gt;</code> — identical concurrent requests share a single cloud call.</li>
+            <li>Multi-layer caching with <code>CacheManager</code>: memory LRU → disk → cloud, reducing latency for repeat lookups by avoiding redundant network calls.</li>
+            <li>Custom <code>FlexibleStringListAdapter</code> (Gson <code>JsonDeserializer</code>) to handle polymorphic server responses returning either a String or JSON array without runtime crashes.</li>
+            <li>Consumer ProGuard rules packaged in AAR to protect SDK internals in any host app's minified build.</li>
+          </ul>
+          <hr class="project-divider">
+          <div class="project-section-label">Results &amp; Metrics</div>
+          <div class="metrics-grid">
+            <div class="metric-box">
+              <span class="mval"><!-- YOUR VALUE --></span>
+              <span class="mlbl">Avg. Response Time</span>
+              <div class="metric-placeholder">e.g. &lt; 120ms</div>
+            </div>
+            <div class="metric-box">
+              <span class="mval"><!-- YOUR VALUE --></span>
+              <span class="mlbl">Cache Hit Rate</span>
+              <div class="metric-placeholder">e.g. 78%</div>
+            </div>
+            <div class="metric-box">
+              <span class="mval"><!-- YOUR VALUE --></span>
+              <span class="mlbl">Apps Integrated</span>
+              <div class="metric-placeholder">e.g. 3 clients</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 2 -->
+      <div class="project-card">
+        <div class="project-card-header">
+          <div class="project-header-left">
+            <div class="project-number">02 / PROJECT</div>
+            <div class="project-name">VPN-Based URL Filtering App</div>
+            <div class="project-tagline">Full-stack Android security suite with DNS-level content filtering</div>
+          </div>
+          <div class="project-badges">
+            <span class="badge badge-blue">MVVM · Hilt</span>
+            <span class="badge badge-orange">VPN / DNS</span>
+            <span class="badge badge-green">Room + SQLCipher</span>
+            <span class="badge badge-purple">TFLite ML</span>
+          </div>
+        </div>
+        <div class="project-card-body">
+          <div class="project-sections">
+            <div>
+              <div class="project-section-label">The Problem</div>
+              <div class="project-section-content">
+                Enterprise customers needed device-level URL filtering — blocking malicious or category-restricted domains — without requiring root access or a remote proxy. The solution had to work across all apps on the device, not just a browser.
+              </div>
+            </div>
+            <div>
+              <div class="project-section-label">My Role &amp; Solution</div>
+              <div class="project-section-content">
+                Designed and implemented a local VPN service that intercepts all DNS traffic through a TUN interface. Built a 10-stage classification pipeline in the <code style="font-family:var(--mono);font-size:12px;background:var(--accent-dim);color:var(--accent);padding:1px 6px;border-radius:4px;">vpncore</code> AAR library. Integrated on-device TFLite ML as a pre-cloud gate to reduce latency.
+              </div>
+            </div>
+          </div>
+          <hr class="project-divider">
+          <div class="project-section-label" style="margin-bottom:0.8rem;">Key Features</div>
+          <ul class="feature-list">
+            <li>10-step DNS filtering pipeline: whitelist → LRU cache → encrypted DB → wildcard → regex → category → keyword → <code>TFLite ML</code> → cloud → default allow.</li>
+            <li>TUN file descriptor read/write loop built in <code>vpncore</code> AAR with <code>DnsResponseBuilder</code> computing correct IP/UDP checksums on synthesised block responses.</li>
+            <li>AES-256 encrypted local database using <code>Room + SQLCipher</code>, protecting sensitive domain lists and logs at rest.</li>
+            <li>MDM / Android Enterprise integration for remote policy push and <code>WorkManager</code>-based periodic sync of cloud rule sets.</li>
+            <li>Full MVVM architecture with <code>Dagger-Hilt</code>, Navigation Component, and a comprehensive test suite using <code>JUnit5 + Mockk</code>.</li>
+          </ul>
+          <hr class="project-divider">
+          <div class="project-section-label">Results &amp; Metrics</div>
+          <div class="metrics-grid">
+            <div class="metric-box">
+              <span class="mval"><!-- YOUR VALUE --></span>
+              <span class="mlbl">DNS Latency Overhead</span>
+              <div class="metric-placeholder">e.g. &lt; 5ms</div>
+            </div>
+            <div class="metric-box">
+              <span class="mval"><!-- YOUR VALUE --></span>
+              <span class="mlbl">ML On-Device Accuracy</span>
+              <div class="metric-placeholder">e.g. 94%</div>
+            </div>
+            <div class="metric-box">
+              <span class="mval"><!-- YOUR VALUE --></span>
+              <span class="mlbl">Battery Impact</span>
+              <div class="metric-placeholder">e.g. &lt; 2% daily</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-inner">
+    <div class="section-label">// let's work together</div>
+    <h2 class="section-title" style="margin-bottom:1rem;">Have an Android problem?<br>Let's solve it.</h2>
+    <p class="contact-sub">
+      Whether you're hiring for a full-time Android role or need a senior freelance engineer to take a project across the finish line — I'm ready to talk. I work best with teams that value clean code, honest communication, and shipping things that actually work.
+    </p>
+    <div class="contact-cta-group">
+      <a href="mailto:your@email.com" class="btn-white">📬 Send me an email</a>
+      <a href="https://linkedin.com/in/yourprofile" class="btn-ghost-white" target="_blank" rel="noopener">View LinkedIn →</a>
+    </div>
+    <div class="contact-links">
+      <a href="https://github.com/yourgithub" class="contact-link" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        GitHub
+      </a>
+      <a href="https://linkedin.com/in/yourprofile" class="contact-link" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+      <a href="mailto:your@email.com" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        your@email.com
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Pawan · Android Developer · Built with care, not a template.</p>
+</footer>
+
+</body>
+</html>
