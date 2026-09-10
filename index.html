@@ -546,6 +546,46 @@
   }
   .metric-placeholder { color: var(--ink-faint); font-style: italic; font-size: 13px; margin-top: 4px; }
 
+  /* ADDITIONAL / COMPACT PROJECTS */
+  .mini-projects { margin-top: 3rem; }
+  .mini-projects-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+    margin-bottom: 1.25rem;
+  }
+  .mini-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+  }
+  .mini-project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+  .mini-project-card .mp-name {
+    font-size: 1.02rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+  .mini-project-card .mp-desc {
+    font-size: 0.9rem;
+    color: var(--ink-muted);
+    line-height: 1.65;
+    margin-bottom: 0.9rem;
+  }
+  .mini-project-card .mp-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
   /* CONTACT */
   .contact {
     text-align: center;
@@ -735,8 +775,8 @@
         <span class="lbl">Years</span>
       </div>
       <div class="stat-chip">
-        <span class="num">10+</span>
-        <span class="lbl">Apps Shipped</span>
+        <span class="num">12+</span>
+        <span class="lbl">Apps &amp; Products</span>
       </div>
       <div class="stat-chip">
         <span class="num">API 21</span>
@@ -762,6 +802,9 @@
         </p>
         <p>
           I care deeply about the craft — <strong>readable code, testable modules, and UI that stays at 60fps</strong>. I don't treat those things as nice-to-haves. I've built everything from security-focused antivirus engines to real-time WebRTC screen share apps, and in every case I hold the same bar: if it doesn't feel polished and fast, it's not done.
+        </p>
+        <p>
+          I've also gone past mobile when a product needed it — architecting full backend platforms in <strong>NestJS, FastAPI, and Go</strong> for independent products I built end-to-end, from schema design to deployment.
         </p>
         <p>
           Whether you need a <strong>full-time engineer</strong> to join your team or a <strong>freelance partner</strong> to take a concept from Figma to Play Store — I can work independently, communicate clearly, and deliver production-ready code you'll actually want to maintain.
@@ -899,6 +942,242 @@
         <div class="project-card-header">
           <div class="project-header-left">
             <div class="project-number">01 / PROJECT</div>
+            <div class="project-name">Daamly — Deal Aggregator &amp; Price Tracking Platform</div>
+            <div class="project-tagline">India-focused price-tracking platform spanning Android, an admin dashboard, and a multi-service backend</div>
+          </div>
+          <div class="project-badges">
+            <span class="badge badge-blue">NestJS · FastAPI</span>
+            <span class="badge badge-green">MongoDB · Redis · ES</span>
+            <span class="badge badge-orange">Kotlin · Compose</span>
+            <span class="badge badge-purple">React · TS Admin</span>
+          </div>
+        </div>
+        <div class="project-card-body">
+          <div class="project-sections">
+            <div>
+              <div class="project-section-label">The Problem</div>
+              <div class="project-section-content">
+                India's deal-hunters juggle Amazon, Flipkart, and a dozen coupon sites by hand, with no single place to track genuine price drops or get paid reliably through affiliate links.
+              </div>
+            </div>
+            <div>
+              <div class="project-section-label">My Role &amp; Solution</div>
+              <div class="project-section-content">
+                Architected daamly.in end-to-end: a <code style="font-family:var(--mono);font-size:12px;background:var(--accent-dim);color:var(--accent);padding:1px 6px;border-radius:4px;">NestJS</code> modular monolith for the core API, FastAPI workers for data ingestion and ML-based product matching, an Android app in Kotlin/Compose, and a React/TypeScript admin dashboard. Owned everything from the SRS through schema design to backend implementation.
+              </div>
+            </div>
+          </div>
+          <hr class="project-divider">
+          <div class="project-section-label" style="margin-bottom:0.8rem;">Key Features</div>
+          <ul class="feature-list">
+            <li>Specification-first build: an SRS with 49 functional requirements → system architecture → a 15-collection MongoDB schema with ~70 indexes → phased NestJS implementation.</li>
+            <li>15 NestJS modules secured with <code>JWT + Google OAuth</code> and role-based access control across 5 distinct roles.</li>
+            <li>FastAPI worker services for data ingestion and ML-based product matching, decoupled from the core API via <code>RabbitMQ</code>.</li>
+            <li>Integrated Amazon PA-API, Flipkart Affiliate API, and CueLinks/vCommission affiliate networks for live pricing and monetization.</li>
+            <li>Elasticsearch-backed product search, Redis caching, and AWS S3 for assets; Google Identity + Firebase power auth and notifications on Android.</li>
+          </ul>
+          <hr class="project-divider">
+          <div class="project-section-label">Results &amp; Metrics</div>
+          <div class="metrics-grid">
+            <div class="metric-box">
+              <span class="mval">15</span>
+              <span class="mlbl">NestJS Modules</span>
+            </div>
+            <div class="metric-box">
+              <span class="mval">49</span>
+              <span class="mlbl">SRS Requirements</span>
+            </div>
+            <div class="metric-box">
+              <span class="mval">5</span>
+              <span class="mlbl">RBAC User Roles</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 2 -->
+      <div class="project-card">
+        <div class="project-card-header">
+          <div class="project-header-left">
+            <div class="project-number">02 / PROJECT</div>
+            <div class="project-name">AI Chat Client</div>
+            <div class="project-tagline">Independent, multi-provider LLM chat app with a self-built Go backend</div>
+          </div>
+          <div class="project-badges">
+            <span class="badge badge-blue">Kotlin · Android</span>
+            <span class="badge badge-green">Go · Fiber</span>
+            <span class="badge badge-orange">Multi-LLM</span>
+            <span class="badge badge-purple">Stripe · Supabase</span>
+          </div>
+        </div>
+        <div class="project-card-body">
+          <div class="project-sections">
+            <div>
+              <div class="project-section-label">The Problem</div>
+              <div class="project-section-content">
+                Wanted a fast, native Android chat client that isn't locked into a single LLM vendor's app or pricing — with real subscription billing and secure auth behind it, not a hobby-project shortcut.
+              </div>
+            </div>
+            <div>
+              <div class="project-section-label">My Role &amp; Solution</div>
+              <div class="project-section-content">
+                Built the product independently, end-to-end: a native Android client paired with a complete 23-file <code style="font-family:var(--mono);font-size:12px;background:var(--accent-dim);color:var(--accent);padding:1px 6px;border-radius:4px;">Go/Fiber</code> backend handling provider routing, billing, auth, and caching.
+              </div>
+            </div>
+          </div>
+          <hr class="project-divider">
+          <div class="project-section-label" style="margin-bottom:0.8rem;">Key Features</div>
+          <ul class="feature-list">
+            <li>Unified backend API routing across six LLM providers — <code>OpenAI, Anthropic, Groq, Gemini, DeepSeek, OpenRouter</code>.</li>
+            <li>Stripe integration for subscription billing and plan management.</li>
+            <li>Supabase-based authentication for accounts and session handling.</li>
+            <li>Redis caching layer to cut latency and avoid redundant provider calls.</li>
+            <li>Full backend ownership across 23 Go source files — routing, auth, billing, and caching all built from scratch.</li>
+          </ul>
+          <hr class="project-divider">
+          <div class="project-section-label">Results &amp; Metrics</div>
+          <div class="metrics-grid">
+            <div class="metric-box">
+              <span class="mval">6</span>
+              <span class="mlbl">LLM Providers Integrated</span>
+            </div>
+            <div class="metric-box">
+              <span class="mval">23</span>
+              <span class="mlbl">Backend Source Files</span>
+            </div>
+            <div class="metric-box">
+              <span class="mval"><!-- YOUR VALUE --></span>
+              <span class="mlbl">Avg. Response Latency</span>
+              <div class="metric-placeholder">e.g. &lt; 200ms</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 3 -->
+      <div class="project-card">
+        <div class="project-card-header">
+          <div class="project-header-left">
+            <div class="project-number">03 / PROJECT</div>
+            <div class="project-name">eScan Mobile Security</div>
+            <div class="project-tagline">Enterprise-grade Android antivirus &amp; security suite protecting 500K+ devices</div>
+          </div>
+          <div class="project-badges">
+            <span class="badge badge-blue">Kotlin / Java</span>
+            <span class="badge badge-green">Firebase</span>
+            <span class="badge badge-orange">WorkManager</span>
+            <span class="badge badge-purple">500K+ Users</span>
+          </div>
+        </div>
+        <div class="project-card-body">
+          <div class="project-sections">
+            <div>
+              <div class="project-section-label">The Problem</div>
+              <div class="project-section-content">
+                eScan needed a consumer security app defending against malware, privacy threats, fraud, and unauthorized access — while staying stable and battery-efficient across a huge, fragmented user base spanning Android 10 through 15.
+              </div>
+            </div>
+            <div>
+              <div class="project-section-label">My Role &amp; Solution</div>
+              <div class="project-section-content">
+                Developed and maintained the app's core security modules end-to-end, along with its monetization layer and device-configuration advisory system.
+              </div>
+            </div>
+          </div>
+          <hr class="project-divider">
+          <div class="project-section-label" style="margin-bottom:0.8rem;">Key Features</div>
+          <ul class="feature-list">
+            <li>Built and maintained <code>Anti-Virus, App Lock, Anti-Theft, Anti-Fraud, Call Filter, Wi-Fi Monitor, SOS Alert, App Usage, Contact Backup</code> modules.</li>
+            <li>Security &amp; privacy advisory system that analyzes device configuration and surfaces actionable recommendations.</li>
+            <li>Google Play Billing integration for Premium license purchases (yearly and 3-year products), alongside CCAvenue for external, UPI-based payment flows.</li>
+            <li>WebView-based payment flows with UPI intent redirection into supported payment apps.</li>
+            <li>Firebase FCM, Crashlytics, Analytics, and Remote Config wired throughout; background work handled via <code>WorkManager</code> and foreground services.</li>
+            <li>Tracked Android storage and device-management restriction changes across Android 10–15 to keep the app compliant and stable.</li>
+          </ul>
+          <hr class="project-divider">
+          <div class="project-section-label">Results &amp; Metrics</div>
+          <div class="metrics-grid">
+            <div class="metric-box">
+              <span class="mval">500K+</span>
+              <span class="mlbl">Active Users</span>
+            </div>
+            <div class="metric-box">
+              <span class="mval">9</span>
+              <span class="mlbl">Security Modules Shipped</span>
+            </div>
+            <div class="metric-box">
+              <span class="mval">10–15</span>
+              <span class="mlbl">Android Versions Supported</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 4 -->
+      <div class="project-card">
+        <div class="project-card-header">
+          <div class="project-header-left">
+            <div class="project-number">04 / PROJECT</div>
+            <div class="project-name">Android Payment &amp; Purchase System</div>
+            <div class="project-tagline">Dual-path license purchasing across Google Play Billing and CCAvenue</div>
+          </div>
+          <div class="project-badges">
+            <span class="badge badge-blue">Play Billing</span>
+            <span class="badge badge-green">CCAvenue</span>
+            <span class="badge badge-orange">UPI</span>
+            <span class="badge badge-purple">WebView</span>
+          </div>
+        </div>
+        <div class="project-card-body">
+          <div class="project-sections">
+            <div>
+              <div class="project-section-label">The Problem</div>
+              <div class="project-section-content">
+                eScan Premium needed to sell licenses through two very different rails — Google Play Billing and the external CCAvenue gateway — covering UPI, cards, netbanking, and wallets, with trustworthy server-side verification and clean handling of failed or cancelled payments.
+              </div>
+            </div>
+            <div>
+              <div class="project-section-label">My Role &amp; Solution</div>
+              <div class="project-section-content">
+                Designed and built the dual-path purchase system end-to-end, from the Play Billing Library integration through CCAvenue's encrypted transaction flow.
+              </div>
+            </div>
+          </div>
+          <hr class="project-divider">
+          <div class="project-section-label" style="margin-bottom:0.8rem;">Key Features</div>
+          <ul class="feature-list">
+            <li>Google Play Billing Library integration for yearly and multi-year Premium products, with <code>ProductDetails</code> retrieval and purchase-token handling.</li>
+            <li>Server-side purchase verification architecture to confirm entitlements before granting license access.</li>
+            <li>CCAvenue integration for external payment processing, including encrypted transaction and payment-parameter handling per CCAvenue's API.</li>
+            <li>UPI payment redirection via Android intents, plus WebView-based redirects and callback-URL handling for card and netbanking flows.</li>
+            <li>Production-oriented error handling for payment failures and cancelled transactions.</li>
+          </ul>
+          <hr class="project-divider">
+          <div class="project-section-label">Results &amp; Metrics</div>
+          <div class="metrics-grid">
+            <div class="metric-box">
+              <span class="mval">4+</span>
+              <span class="mlbl">Payment Methods</span>
+            </div>
+            <div class="metric-box">
+              <span class="mval"><!-- YOUR VALUE --></span>
+              <span class="mlbl">Payment Success Rate</span>
+              <div class="metric-placeholder">e.g. 97%</div>
+            </div>
+            <div class="metric-box">
+              <span class="mval"><!-- YOUR VALUE --></span>
+              <span class="mlbl">Avg. Checkout Time</span>
+              <div class="metric-placeholder">e.g. &lt; 30s</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 5 -->
+      <div class="project-card">
+        <div class="project-card-header">
+          <div class="project-header-left">
+            <div class="project-number">05 / PROJECT</div>
             <div class="project-name">eScan URL Filter SDK</div>
             <div class="project-tagline">Enterprise-grade Android SDK for real-time URL threat detection</div>
           </div>
@@ -955,12 +1234,12 @@
         </div>
       </div>
 
-      <!-- PROJECT 2 -->
+      <!-- PROJECT 6 -->
       <div class="project-card">
         <div class="project-card-header">
           <div class="project-header-left">
-            <div class="project-number">02 / PROJECT</div>
-            <div class="project-name">VPN-Based URL Filtering App</div>
+            <div class="project-number">06 / PROJECT</div>
+            <div class="project-name">VPN-Based URL Filtering App &amp; SDK</div>
             <div class="project-tagline">Full-stack Android security suite with DNS-level content filtering</div>
           </div>
           <div class="project-badges">
@@ -992,20 +1271,19 @@
             <li>TUN file descriptor read/write loop built in <code>vpncore</code> AAR with <code>DnsResponseBuilder</code> computing correct IP/UDP checksums on synthesised block responses.</li>
             <li>AES-256 encrypted local database using <code>Room + SQLCipher</code>, protecting sensitive domain lists and logs at rest.</li>
             <li>MDM / Android Enterprise integration for remote policy push and <code>WorkManager</code>-based periodic sync of cloud rule sets.</li>
+            <li>Companion Android Mini Browser built on the same filtering engine, surfacing real-time URL security scores to users.</li>
             <li>Full MVVM architecture with <code>Dagger-Hilt</code>, Navigation Component, and a comprehensive test suite using <code>JUnit5 + Mockk</code>.</li>
           </ul>
           <hr class="project-divider">
           <div class="project-section-label">Results &amp; Metrics</div>
           <div class="metrics-grid">
             <div class="metric-box">
-              <span class="mval"><!-- YOUR VALUE --></span>
-              <span class="mlbl">DNS Latency Overhead</span>
-              <div class="metric-placeholder">e.g. &lt; 5ms</div>
+              <span class="mval">194</span>
+              <span class="mlbl">Source Files</span>
             </div>
             <div class="metric-box">
-              <span class="mval"><!-- YOUR VALUE --></span>
-              <span class="mlbl">ML On-Device Accuracy</span>
-              <div class="metric-placeholder">e.g. 94%</div>
+              <span class="mval">2</span>
+              <span class="mlbl">Modules (App + vpncore)</span>
             </div>
             <div class="metric-box">
               <span class="mval"><!-- YOUR VALUE --></span>
@@ -1016,7 +1294,222 @@
         </div>
       </div>
 
+      <!-- PROJECT 7 -->
+      <div class="project-card">
+        <div class="project-card-header">
+          <div class="project-header-left">
+            <div class="project-number">07 / PROJECT</div>
+            <div class="project-name">eScan Antivirus — Security Scanning Engine</div>
+            <div class="project-tagline">Ground-up rebuild of eScan's Android malware-detection engine</div>
+          </div>
+          <div class="project-badges">
+            <span class="badge badge-blue">Java</span>
+            <span class="badge badge-green">Material 3</span>
+            <span class="badge badge-orange">Room</span>
+            <span class="badge badge-purple">YARA</span>
+          </div>
+        </div>
+        <div class="project-card-body">
+          <div class="project-sections">
+            <div>
+              <div class="project-section-label">The Problem</div>
+              <div class="project-section-content">
+                eScan's malware-detection logic — certificate checks, entropy analysis, heuristics, URL reputation, YARA matching — had grown ad hoc over time and needed to move onto a clean, testable architecture without regressing detection accuracy.
+              </div>
+            </div>
+            <div>
+              <div class="project-section-label">My Role &amp; Solution</div>
+              <div class="project-section-content">
+                Rebuilt the scanning app from scratch in Java with Material Design 3, Room, and Jetpack Navigation, and rewrote the detection engines themselves to production standards across domain, repository, and ViewModel layers.
+              </div>
+            </div>
+          </div>
+          <hr class="project-divider">
+          <div class="project-section-label" style="margin-bottom:0.8rem;">Key Features</div>
+          <ul class="feature-list">
+            <li>Rewrote certificate validation, entropy analysis, heuristic detection, URL reputation checks, and YARA rule matching to production standards.</li>
+            <li>Restructured detection logic into clean domain / repository / ViewModel layers for testability and long-term maintainability.</li>
+            <li>Room-backed local storage for scan history and detection results.</li>
+            <li>Rebuilt the UI on Jetpack Navigation with Material Design 3 components throughout.</li>
+          </ul>
+          <hr class="project-divider">
+          <div class="project-section-label">Results &amp; Metrics</div>
+          <div class="metrics-grid">
+            <div class="metric-box">
+              <span class="mval">5</span>
+              <span class="mlbl">Detection Engines Rewritten</span>
+            </div>
+            <div class="metric-box">
+              <span class="mval"><!-- YOUR VALUE --></span>
+              <span class="mlbl">Avg. Scan Time</span>
+              <div class="metric-placeholder">e.g. &lt; 10s</div>
+            </div>
+            <div class="metric-box">
+              <span class="mval"><!-- YOUR VALUE --></span>
+              <span class="mlbl">False Positive Rate</span>
+              <div class="metric-placeholder">e.g. &lt; 1%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 8 -->
+      <div class="project-card">
+        <div class="project-card-header">
+          <div class="project-header-left">
+            <div class="project-number">08 / PROJECT</div>
+            <div class="project-name">eScan Screen Mirroring App</div>
+            <div class="project-tagline">Real-time WebRTC screen sharing with in-app chat for remote support</div>
+          </div>
+          <div class="project-badges">
+            <span class="badge badge-blue">WebRTC</span>
+            <span class="badge badge-green">MediaProjection</span>
+            <span class="badge badge-orange">DataChannel</span>
+            <span class="badge badge-purple">Kotlin / Java</span>
+          </div>
+        </div>
+        <div class="project-card-body">
+          <div class="project-sections">
+            <div>
+              <div class="project-section-label">The Problem</div>
+              <div class="project-section-content">
+                eScan's remote-support flow needed real-time Android screen sharing so technicians could see a customer's device, plus a reliable in-app channel for coordinating during a session — without breaking the screen-sharing architecture already running in production.
+              </div>
+            </div>
+            <div>
+              <div class="project-section-label">My Role &amp; Solution</div>
+              <div class="project-section-content">
+                Built the WebRTC-based remote-access system end-to-end, including a production in-app chat feature and a browser-based viewer that mirrors the Android signaling flow.
+              </div>
+            </div>
+          </div>
+          <hr class="project-divider">
+          <div class="project-section-label" style="margin-bottom:0.8rem;">Key Features</div>
+          <ul class="feature-list">
+            <li>Real-time screen capture via Android's <code>MediaProjection</code> API, kept alive through a <code>ScreenCaptureService</code> foreground service.</li>
+            <li>Firebase-based signaling for SDP offer/answer and ICE candidate exchange between sender and receiver.</li>
+            <li>In-app chat over WebRTC <code>DataChannels</code> with delivery-state tracking, retry logic, per-message status indicators, and typing indicators.</li>
+            <li>Receiver-side aspect-ratio correction and network-adaptive resolution to keep the mirrored view usable across connection qualities.</li>
+            <li>Remote-access request/approval workflow, plus a browser-based WebRTC viewer replicating the Android signaling flow for desktop support use cases.</li>
+          </ul>
+          <hr class="project-divider">
+          <div class="project-section-label">Results &amp; Metrics</div>
+          <div class="metrics-grid">
+            <div class="metric-box">
+              <span class="mval"><!-- YOUR VALUE --></span>
+              <span class="mlbl">Connection Setup Time</span>
+              <div class="metric-placeholder">e.g. &lt; 3s</div>
+            </div>
+            <div class="metric-box">
+              <span class="mval"><!-- YOUR VALUE --></span>
+              <span class="mlbl">Message Delivery Success</span>
+              <div class="metric-placeholder">e.g. 99%</div>
+            </div>
+            <div class="metric-box">
+              <span class="mval"><!-- YOUR VALUE --></span>
+              <span class="mlbl">Resolutions Supported</span>
+              <div class="metric-placeholder">e.g. 3 tiers</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 9 -->
+      <div class="project-card">
+        <div class="project-card-header">
+          <div class="project-header-left">
+            <div class="project-number">09 / PROJECT</div>
+            <div class="project-name">eScan MDM / EMM</div>
+            <div class="project-tagline">Enterprise mobility platform managing 10,000+ corporate devices</div>
+          </div>
+          <div class="project-badges">
+            <span class="badge badge-blue">MDM / EMM</span>
+            <span class="badge badge-green">Device Admin</span>
+            <span class="badge badge-orange">FCM</span>
+            <span class="badge badge-purple">WorkManager</span>
+          </div>
+        </div>
+        <div class="project-card-body">
+          <div class="project-sections">
+            <div>
+              <div class="project-section-label">The Problem</div>
+              <div class="project-section-content">
+                Enterprises needed to centrally enroll, monitor, and lock down corporate devices at scale — controlling installed apps, Wi-Fi configuration, web access, and security posture from one console, across large fleets.
+              </div>
+            </div>
+            <div>
+              <div class="project-section-label">My Role &amp; Solution</div>
+              <div class="project-section-content">
+                Developed the Android components powering device enrollment, policy enforcement, compliance, and app/web management, keeping devices in continuous sync with the backend over FCM and scheduled jobs.
+              </div>
+            </div>
+          </div>
+          <hr class="project-divider">
+          <div class="project-section-label" style="margin-bottom:0.8rem;">Key Features</div>
+          <ul class="feature-list">
+            <li>Built device enrollment and ongoing communication between managed devices and the backend server.</li>
+            <li>Shipped policy modules: <code>Application Block, Web Block, Application Catalog, Content Library, Wi-Fi Settings, Compliance Management, Anti-Theft, Device Scan, License Validation, Server Sync</code>.</li>
+            <li>Background synchronization and scheduled policy checks via <code>WorkManager</code>.</li>
+            <li>Push-based device communication and remote command delivery via Firebase Cloud Messaging.</li>
+            <li>Built on Android device-administration APIs to enforce security settings and restrictions at the OS level.</li>
+          </ul>
+          <hr class="project-divider">
+          <div class="project-section-label">Results &amp; Metrics</div>
+          <div class="metrics-grid">
+            <div class="metric-box">
+              <span class="mval">10,000+</span>
+              <span class="mlbl">Managed Endpoints</span>
+            </div>
+            <div class="metric-box">
+              <span class="mval">10</span>
+              <span class="mlbl">Policy Modules Shipped</span>
+            </div>
+            <div class="metric-box">
+              <span class="mval"><!-- YOUR VALUE --></span>
+              <span class="mlbl">Enrollment Success Rate</span>
+              <div class="metric-placeholder">e.g. 98%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
+
+    <!-- ADDITIONAL ENTERPRISE CONTRIBUTIONS -->
+    <div class="mini-projects">
+      <div class="mini-projects-label">// additional enterprise contributions</div>
+      <div class="mini-projects-grid">
+        <div class="mini-project-card">
+          <div class="mp-name">eScan Authenticator</div>
+          <div class="mp-desc">Two-factor authentication app: secure generation and handling of authentication tokens, backend-integrated account/device registration, and FCM-driven auth notifications for eScan's enterprise identity stack.</div>
+          <div class="mp-tags">
+            <span class="skill-tag">Kotlin</span>
+            <span class="skill-tag">2FA</span>
+            <span class="skill-tag">FCM</span>
+            <span class="skill-tag">Secure Tokens</span>
+          </div>
+        </div>
+        <div class="mini-project-card">
+          <div class="mp-name">eScan Cert-In</div>
+          <div class="mp-desc">Security &amp; compliance app supporting enterprise compliance requirements: backend-synced device-security data, secure app-to-server communication, and Firebase-based monitoring and alerting.</div>
+          <div class="mp-tags">
+            <span class="skill-tag">Compliance</span>
+            <span class="skill-tag">REST APIs</span>
+            <span class="skill-tag">Firebase</span>
+          </div>
+        </div>
+        <div class="mini-project-card">
+          <div class="mp-name">eScan TPN</div>
+          <div class="mp-desc">Device-protection app focused on centralized security monitoring: background sync services, REST API integration, and production stability work — crash monitoring and performance tuning on Firebase Analytics/Crashlytics.</div>
+          <div class="mp-tags">
+            <span class="skill-tag">Device Security</span>
+            <span class="skill-tag">Background Sync</span>
+            <span class="skill-tag">Crashlytics</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1029,29 +1522,34 @@
       Whether you're hiring for a full-time Android role or need a senior freelance engineer to take a project across the finish line — I'm ready to talk. I work best with teams that value clean code, honest communication, and shipping things that actually work.
     </p>
     <div class="contact-cta-group">
-      <a href="mailto:your@email.com" class="btn-white">📬 Send me an email</a>
-      <a href="https://linkedin.com/in/yourprofile" class="btn-ghost-white" target="_blank" rel="noopener">View LinkedIn →</a>
+      <a href="mailto:pawansharmapsp17@gmail.com" class="btn-white">📬 Send me an email</a>
+      <a href="https://linkedin.com/in/pawanpsp" class="btn-ghost-white" target="_blank" rel="noopener">View LinkedIn →</a>
     </div>
     <div class="contact-links">
-      <a href="https://github.com/yourgithub" class="contact-link" target="_blank" rel="noopener">
+      <a href="https://github.com/Pawanpsp" class="contact-link" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
         GitHub
       </a>
-      <a href="https://linkedin.com/in/yourprofile" class="contact-link" target="_blank" rel="noopener">
+      <a href="https://linkedin.com/in/pawanpsp" class="contact-link" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         LinkedIn
       </a>
-      <a href="mailto:your@email.com" class="contact-link">
+      <a href="mailto:pawansharmapsp17@gmail.com" class="contact-link">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        your@email.com
+        pawansharmapsp17@gmail.com
+      </a>
+      <a href="tel:+919129931112" class="contact-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +91-9129931112
       </a>
     </div>
+    <p style="margin-top:1.5rem; font-size:13px; color:rgba(255,255,255,0.4);">Ulhasnagar, Maharashtra, India</p>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2025 Pawan · Android Developer · Built with care, not a template.</p>
+  <p>© 2026 Pawan · Android Developer · Built with care, not a template.</p>
 </footer>
 
 </body>
